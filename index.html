@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de Temperatura e Umidade</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* CSS aqui */
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Monitoramento de Ambiente</h1>
+    <p>Dados do Sensor DHT11</p>
+  </header>
+  <div class="dashboard">
+    <div class="cards">
+      <div class="card">
+        <h2>Temperatura</h2>
+        <div class="sampler">
+          <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+            <path
+              d="M307.72 302.27a8 8 0 01-3.72-6.75V80a48 48 0 00-48-48h0a48 48 0 00-48 48v215.52a8 8 0 01-3.71 6.74 97.51 97.51 0 00-44.19 86.07A96 96 0 00352 384a97.49 97.49 0 00-44.28-81.73zM256 112v272"
+              fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" />
+            <circle cx="256" cy="384" r="48" />
+          </svg>
+          <p class="data" id="temp">-- °C</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Umidade</h2>
+        <div class="sampler">
+          <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+            <path
+              d="M400 320c0 88.37-55.63 144-144 144s-144-55.63-144-144c0-94.83 103.23-222.85 134.89-259.88a12 12 0 0118.23 0C296.77 97.15 400 225.17 400 320z"
+              fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32" />
+            <path d="M344 328a72 72 0 01-72 72" fill="none" stroke="currentColor" stroke-linecap="round"
+              stroke-linejoin="round" stroke-width="32" />
+          </svg>
+          <p class="data" id="humidity">-- %</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Simulação de dados (substitua com os dados reais do sensor DHT11)
+    const temperatura = 25; // Exemplo: 25°C
+    const umidade = 60; // Exemplo: 60%
+
+    document.getElementById("temp").innerText = `${temperatura} °C`;
+    document.getElementById("humidity").innerText = `${umidade} %`;
+  </script>
+</body>
+
+</html>
