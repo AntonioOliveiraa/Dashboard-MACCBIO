@@ -76,10 +76,54 @@ header p {
     font-weight: bold;
 }
 
-svg {
+.sampler svg {
+    max-width: 80px;
+    margin-right: 10px;
     fill: #69798b;
     color: #69798b;
     width: 8vw;
+}
+
+@media screen and (max-width: 1400px) {
+    header {
+        flex-direction: column;
+        margin-bottom: 6vw;
+    }
+    
+    header h1 {
+        font-size: 4vw;
+    }
+    
+    header p {
+        font-size: 2.5vw;
+    }
+    
+    .dashboard {
+        padding: 1vw;
+        width: 80%;
+        max-width: 1200px; 
+        justify-content: space-between;
+    }
+    
+    .cards {
+        gap: 3vw;
+    }
+
+    .card {
+        width: 45%;
+    }
+
+    .card h2 {
+        font-size: 1.5vw;
+    }
+
+    .data {
+        font-size: 6vw;
+    }
+    
+    svg {
+        width: 15vw;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -99,12 +143,13 @@ svg {
     .dashboard {
         padding: 1vw;
         width: 80%;
+        
         justify-content: space-between;
     }
     
     .cards {
         gap: 3vw;
-        flex-wrap: wrap;
+        /* flex-wrap: wrap; */
     }
 
     .card {
