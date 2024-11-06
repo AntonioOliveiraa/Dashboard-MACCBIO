@@ -84,11 +84,11 @@ svg {
     }
     
     header h1 {
-        font-size: 2em;
+        font-size: 4.5vw;
     }
     
     header p {
-        font-size: 1em;
+        font-size: 3vw;
     }
     
     .dashboard {
