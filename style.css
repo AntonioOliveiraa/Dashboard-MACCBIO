@@ -18,7 +18,7 @@ body {
 .dashboard {
     padding: 2vw;
     width: 50vw;
-    max-width: 1200px; /* Evita que o conteúdo se estique demais em telas grandes */
+    max-width: 1200px; 
     text-align: center;  
 }
 
@@ -41,9 +41,9 @@ header p {
 
 .cards {
     display: flex;
-    /* flex-wrap: wrap; /* Permite que as cartas se movam para uma nova linha */
-    gap: 2.5vw; /* Adiciona um espaçamento consistente entre as cartas */
-    justify-content: center; /* Alinha as cartas no centro */
+    flex-wrap: wrap;
+    gap: 2.5vw; 
+    justify-content: center;
 }
 
 .card {
@@ -53,15 +53,15 @@ header p {
              -20px -20px 60px #ffffff;
     padding: 20px;
     width: 45%;
-    min-width: 250px; /* Garante que a carta tenha no mínimo 250px de largura */
-    text-align: center; /* Alinha o conteúdo da carta ao centro */
+    min-width: 250px;
+    text-align: center;
 }
 
 .sampler {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center; /* Garante que o ícone e a data fiquem centralizados */
+    justify-content: center;
 }
 
 .card h2 {
@@ -104,22 +104,23 @@ svg {
     
     .cards {
         gap: 3vw;
+        flex-wrap: wrap;
     }
 
     .card {
-        width: 45%; /* As cartas ainda ocupam 45% em telas médias */
+        width: 45%;
     }
 
     .card h2 {
-        font-size: 2.5vw; /* Ajusta o tamanho da fonte das cartas */
+        font-size: 2.5vw;
     }
 
     .data {
-        font-size: 8vw; /* Ajusta o tamanho da fonte das dados */
+        font-size: 8vw;
     }
     
     svg {
-        width: 15vw; /* Ajuste para ícones menores */
+        width: 15vw;
     }
 }
 
@@ -144,7 +145,7 @@ svg {
     }
 
     .card {
-        width: 100%; /* As cartas ocupam 100% da largura da tela em dispositivos muito pequenos */
+        width: 100%;
     }
 
     .cards {
