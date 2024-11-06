@@ -18,6 +18,7 @@ body {
 .dashboard {
     padding: 2vw;
     width: 50vw;
+    max-width: 1200px; /* Evita que o conteúdo se estique demais em telas grandes */
     text-align: center;  
 }
 
@@ -29,18 +30,20 @@ header {
 }
 
 header h1 {
-    font-size: 2.5em;
+    font-size: 2.5vw;
     color: #001f3f;
 }
 
 header p {
     color: #69798b;
-    font-size: 1.2em;
+    font-size: 1.2vw;
 }
 
 .cards {
     display: flex;
-    justify-content: space-between;
+    /* flex-wrap: wrap; /* Permite que as cartas se movam para uma nova linha */
+    gap: 2.5vw; /* Adiciona um espaçamento consistente entre as cartas */
+    justify-content: center; /* Alinha as cartas no centro */
 }
 
 .card {
@@ -48,25 +51,27 @@ header p {
     background: #e0e0e0;
     box-shadow:  20px 20px 60px #bebebe,
              -20px -20px 60px #ffffff;
-    padding: 15px;
-    width: 45%;
     padding: 20px;
+    width: 45%;
+    min-width: 250px; /* Garante que a carta tenha no mínimo 250px de largura */
+    text-align: center; /* Alinha o conteúdo da carta ao centro */
 }
 
 .sampler {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center; /* Garante que o ícone e a data fiquem centralizados */
 }
 
 .card h2 {
-    font-size: 1em;
+    font-size: 1vw;
     color: #001f3f;
     margin-bottom: 10px;
 }
 
 .data {
-    font-size: 4em;
+    font-size: 4vw;
     color: #001f3f;
     font-weight: bold;
 }
@@ -74,7 +79,7 @@ header p {
 svg {
     fill: #69798b;
     color: #69798b;
-    width: 8rem;
+    width: 8vw;
 }
 
 @media screen and (max-width: 600px) {
@@ -97,15 +102,71 @@ svg {
         justify-content: space-between;
     }
     
-   .card {
-        width: 45%;
+    .cards {
+        gap: 3vw;
+    }
+
+    .card {
+        width: 45%; /* As cartas ainda ocupam 45% em telas médias */
+    }
+
+    .card h2 {
+        font-size: 2.5vw; /* Ajusta o tamanho da fonte das cartas */
     }
 
     .data {
-        font-size: 2em;
+        font-size: 8vw; /* Ajusta o tamanho da fonte das dados */
     }
     
     svg {
-        width: 4rem;
+        width: 15vw; /* Ajuste para ícones menores */
+    }
+}
+
+@media screen and (max-width: 400px) {
+    header {
+        flex-direction: column;
+        margin-bottom: 6vw;
+    }
+    
+    header h1 {
+        font-size: 6vw;
+    }
+    
+    header p {
+        font-size: 4vw;
+    }
+    
+    .dashboard {
+        padding: 1vw;
+        width: 50vw;
+        justify-content: space-between;
+    }
+
+    .card {
+        width: 100%; /* As cartas ocupam 100% da largura da tela em dispositivos muito pequenos */
+    }
+
+    .cards {
+        gap: 3vw;
+        flex-wrap: wrap;
+    }
+    
+    .card h2 {
+        font-size: 3vw;
+        color: #001f3f;
+        margin-bottom: 10px;
+    }
+    
+    .data {
+        font-size: 8vw;
+        color: #001f3f;
+        font-weight: bold;
+    }
+    
+    svg {
+        fill: #69798b;
+        color: #69798b;
+        width: 15vw;
     }
 }
