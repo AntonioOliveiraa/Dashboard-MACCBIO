@@ -5,10 +5,227 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard de Temperatura e Umidade</title>
-  <link rel="stylesheet" href="style.css">
+  <!-- <link rel="stylesheet" href="style.css"> -->
   <style>
-    /* CSS aqui depois de pronto */
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+.dashboard {
+    padding: 2vw;
+    width: 50vw;
+    max-width: 1200px; 
+    text-align: center;  
+}
+
+header {
+    margin-bottom: 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 2.5vw;
+    color: #001f3f;
+}
+
+header p {
+    color: #69798b;
+    font-size: 1.2vw;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5vw; 
+    justify-content: center;
+}
+
+.card {
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow:  20px 20px 60px #bebebe,
+             -20px -20px 60px #ffffff;
+    padding: 20px;
+    width: 20vw;
+    min-width: 250px;
+    text-align: center;
+}
+
+.sampler {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.card h2 {
+    font-size: 1vw;
+    color: #001f3f;
+    margin-bottom: 10px;
+}
+
+.data {
+    font-size: 4vw;
+    color: #001f3f;
+    font-weight: bold;
+}
+
+.sampler svg {
+    max-width: 120px;
+    fill: #69798b;
+    color: #69798b;
+    width: 8vw;
+}
+
+@media screen and (max-width: 1400px) {
+    header {
+        flex-direction: column;
+        margin-bottom: 6vw;
+    }
+    
+    header h1 {
+        font-size: 4vw;
+    }
+    
+    header p {
+        font-size: 2.5vw;
+    }
+    
+    .dashboard {
+        padding: 1vw;
+        width: 80%;
+        max-width: 1200px; 
+        justify-content: space-between;
+    }
+    
+    .cards {
+        gap: 3vw;
+    }
+
+    .card {
+        width: 45%;
+    }
+
+    .card h2 {
+        font-size: 1.5vw;
+    }
+
+    .data {
+        font-size: 6vw;
+    }
+    
+    svg {
+        width: 15vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+        margin-bottom: 6vw;
+    }
+    
+    header h1 {
+        font-size: 4.5vw;
+    }
+    
+    header p {
+        font-size: 3vw;
+    }
+    
+    .dashboard {
+        padding: 1vw;
+        width: 80%;
+        justify-content: space-between;
+    }
+    
+    .cards {
+        gap: 3vw;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        width: 45%;
+    }
+
+    .card h2 {
+        font-size: 2.5vw;
+    }
+
+    .data {
+        font-size: 8vw;
+    }
+    
+    svg {
+        width: 15vw;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    header {
+        flex-direction: column;
+        margin-bottom: 6vw;
+    }
+    
+    header h1 {
+        font-size: 6vw;
+    }
+    
+    header p {
+        font-size: 4vw;
+    }
+    
+    .dashboard {
+        padding: 1vw;
+        width: 50vw;
+        justify-content: space-between;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .cards {
+        gap: 3vw;
+        flex-wrap: wrap;
+    }
+    
+    .card h2 {
+        font-size: 3vw;
+        color: #001f3f;
+        margin-bottom: 10px;
+    }
+    
+    .data {
+        font-size: 8vw;
+        color: #001f3f;
+        font-weight: bold;
+    }
+    
+    svg {
+        fill: #69798b;
+        color: #69798b;
+        width: 15vw;
+    }
+}
+
   </style>
+
 </head>
 
 <body>
@@ -27,7 +244,7 @@
               fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" />
             <circle cx="256" cy="384" r="48" />
           </svg>
-          <p class="data" id="temp">--°C</p>
+          <p class="data" id="temp">25ºC</p>
         </div>
       </div>
 
@@ -41,20 +258,35 @@
             <path d="M344 328a72 72 0 01-72 72" fill="none" stroke="currentColor" stroke-linecap="round"
               stroke-linejoin="round" stroke-width="32" />
           </svg>
-          <p class="data" id="humidity">--%</p>
+          <p class="data" id="humidity">60%</p>
         </div>
       </div>
     </div>
   </div>
 
   <script>
-    // Simulação de dados (substituir com os dados reais do sensor DHT11)
-    const temperatura = 25;
-    const umidade = 60;
-
-    document.getElementById("temp").innerText = `${temperatura}°C`;
-    document.getElementById("humidity").innerText = `${umidade}%`;
-  </script>
+    setInterval(function ( ) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("temp").innerHTML = this.responseText;
+        }
+      };
+      xhttp.open("GET", "/temperature", true);
+      xhttp.send();
+    }, 3000 ) ;
+    
+    setInterval(function ( ) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("humidity").innerHTML = this.responseText;
+        }
+      };
+      xhttp.open("GET", "/humidity", true);
+      xhttp.send();
+    }, 3000 ) ;
+    </script>
 </body>
 
 </html>
